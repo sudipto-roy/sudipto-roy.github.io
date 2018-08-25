@@ -1,6 +1,8 @@
 {
 	"personal": {
-		"title": "Personal Information",
+		"tileTitle": "Personal Information",
+		"formName": "personalDetails",
+		"formAction": "/personalDetails",
 		"inputs": [{
 			"id": "userName",
 			"type": "text",
@@ -33,10 +35,14 @@
 	},
 	"educational": {
 		"title": "Educational Information",
+		"formName": "educationalDetails",
+		"formAction": "/educationalDetails",
 		"inputs": []
 	},
-	"work": {
-		"title": "Personal Information",
+	"experience": {
+		"title": "Experience Information",
+		"formName": "experienceDetails",
+		"formAction": "/experienceDetails",
 		"inputs": []
 	}
 }
