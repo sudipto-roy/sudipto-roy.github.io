@@ -1,0 +1,25 @@
+/*
+RESET
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, li, ul, ol, dl, dt, dd {
+  margin: 0;
+}
+
+/*
+BASE
+*/
+
+body {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+main {
+  overflow: auto;
+}

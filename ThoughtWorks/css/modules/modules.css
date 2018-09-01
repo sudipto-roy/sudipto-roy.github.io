@@ -1,0 +1,53 @@
+@import 'movie-tiles.css';
+
+
+/*
+HELPER
+*/
+
+.m-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/*
+GLOBAL COMPONENTS
+*/
+
+.m-button {
+  padding: 8px;
+  width: 80px;
+  -webkit-appearance: none;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 20%;
+  cursor: pointer;
+}
+
+.m-loading {
+  position: relative;
+  min-height: 240px;
+}
+
+.m-loading::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+}
+
+.m-loading::before {
+  content: 'LOADING...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 40px;
+  width: 100px;
+  transform: translate(-50%, -50%);
+  font-family: OpenSans-ExtraBold;
+}

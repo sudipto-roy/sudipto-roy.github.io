@@ -7,40 +7,40 @@
 			"id": "userName",
 			"type": "text",
 			"value": "Sudipto Roy",
-			"label": "Name",
+			"label": "Name: ",
 			"name": "userName",
 			"editable": true
 		}, {
 			"id": "userAge",
 			"type": "number",
 			"value": 24,
-			"label": "Age",
+			"label": "Age: ",
 			"name": "userAge",
 			"editable": true
 		}, {
 			"id": "userGender",
 			"type": "text",
 			"value": "Male",
-			"label": "Gender",
+			"label": "Gender: ",
 			"name": "userGender",
 			"editable": false
 		}, {
 			"id": "userEmail",
 			"type": "text",
 			"value": "sroy26@sapient.com",
-			"label": "Email",
+			"label": "Email: ",
 			"name": "userEmail",
 			"editable": false
 		}]
 	},
 	"educational": {
-		"title": "Educational Information",
+		"tileTitle": "Educational Information",
 		"formName": "educationalDetails",
 		"formAction": "/educationalDetails",
 		"inputs": []
 	},
 	"experience": {
-		"title": "Experience Information",
+		"tileTitle": "Experience Information",
 		"formName": "experienceDetails",
 		"formAction": "/experienceDetails",
 		"inputs": []

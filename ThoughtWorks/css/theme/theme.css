@@ -1,0 +1,33 @@
+@import './fonts.css';
+@import './variables.css';
+
+body {
+  font-family: "OpenSans-Light", "Arial Bold";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-family: "OpenSans-ExtraBold", calibri;
+}
+
+.l-header,
+.movie-tiles__heading {
+  border-bottom: 1px solid var(--border-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+.m-movie-tile__title {
+  background: var(--border-color);
+}
+
+.l-footer {
+  background: var(--secondary-bg);
+  color: var(--secondary-color);
+}

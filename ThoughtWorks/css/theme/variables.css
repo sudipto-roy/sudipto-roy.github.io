@@ -1,0 +1,11 @@
+:root {
+  --primary-bg: #FFF;
+  --secondary-bg: #808285;
+  --primary-color: #000;
+  --secondary-color: #FFF;
+  --header-font-family: OpenSans-ExtraBold, "calibri bold";
+  --content-font-family: OpenSans-Light, "calibri";
+  --border-color: #EEE;
+  --link-color: #EE0B77;
+  --link-hover-color: #F867AC;
+}
