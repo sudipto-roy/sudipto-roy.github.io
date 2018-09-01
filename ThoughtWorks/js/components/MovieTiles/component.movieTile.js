@@ -12,7 +12,7 @@
       movieTiles: document.querySelector('#movieTiles')
     }
     app.loadingStart(_global.dom.movieTiles);
-    var res = await fetch('/json/movies.json')
+    var res = await fetch('./json/movies.json')
       .then(function(response) {
         return response.json();
       })
