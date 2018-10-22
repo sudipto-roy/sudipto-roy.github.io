@@ -10,7 +10,7 @@
 
   ProfileAccordianTile.prototype.beforeInit = function () {
     var _self = this;
-    $.get('/json/profile.json').done(function (res) {
+    $.get('/json/profile.json').done(function (res) { 
       _self.beforeInitRes = res;
       _self.beforeInitDeff.resolve(res);
     });
