@@ -1,5 +1,18 @@
-body {
-  font-family: "Open Sans", sans-serif;
-}
+@import "tailwindcss";
 
-/*# sourceMappingURL=style.css.map */
+.heading-gradient {
+    /* @apply font-bold text-4xl md:text-5xl lg:text-6xl; */
+    background: linear-gradient(90deg, #4285f4,#9b72cb,  #d96570);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* background-size: 300% auto; Adjust size for more spread */
+    /* animation: gradient-dissolve 1s ease-in-out infinite alternate; */
+    /* background: linear-gradient(74deg, #4285f4 0, #4285f4 9%, #d96570 20%, #d96570 24%, #9b72cb 35%, #4285f4 44%, #9b72cb 50%, #d96570 56%) */
+  }
+
+  /* @keyframes gradient-dissolve {
+    0% { background: linear-gradient(90deg, #4285f4,#9b72cb,  #d96570); }
+    33% { background: linear-gradient(180deg, #4285f4,#9b72cb,  #d96570); }
+  66% { background: linear-gradient(270deg, #4285f4,#9b72cb,  #d96570); }
+    100% { background: linear-gradient(90deg, #4285f4,#9b72cb,  #d96570); }
+  } */

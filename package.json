@@ -4,8 +4,11 @@
   "description": "portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "sass src/styles/style.scss:src/styles/style.css && live-server --open=/src --port=8080 ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "live-server --open=/src --port=8080",
+    "css": "npx @tailwindcss/cli -i ./src/styles/style.css -o ./src/styles/dist/style.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js",
+    "build:serve": "live-server --port=8080"
   },
   "repository": {
     "type": "git",
@@ -19,6 +22,9 @@
   "homepage": "https://github.com/sudipto-roy/sudipto-roy.github.io#readme",
   "devDependencies": {
     "live-server": "^1.2.2",
-    "sass": "^1.87.0"
-  }
+    "tailwindcss": "^4.1.4",
+    "@tailwindcss/cli": "^4.1.4",
+    "html-minifier-terser": "^7.2.0"
+  },
+  "dependencies": {}
 }
