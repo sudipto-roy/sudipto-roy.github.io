@@ -54,8 +54,10 @@ fs.readFile('src/index.html', 'utf8', async function (err, data) {
   });
 });
 
-// const result = await minify('<p title="blah" id="moo">foo</p>', {
-//   removeAttributeQuotes: true,
-// });
 
-// result;
+fs.rename('src/icons', 'icons', err => {
+  if (err) {
+    console.error(err);
+  }
+  // done
+});
