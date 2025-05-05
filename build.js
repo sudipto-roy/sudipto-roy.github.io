@@ -55,9 +55,8 @@ fs.readFile('src/index.html', 'utf8', async function (err, data) {
 });
 
 
-fs.rename('src/icons', 'icons', err => {
+fs.cp('src/files', 'files', {recursive: true}, err => {
   if (err) {
     console.error(err);
   }
-  // done
 });

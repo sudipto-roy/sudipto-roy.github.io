@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "live-server --open=/src --port=8080",
-    "css": "npx @tailwindcss/cli -i ./src/styles/style.css -o ./src/styles/dist/style.css --watch",
+    "css": "npx @tailwindcss/cli -i ./src/files/styles/style.css -o ./src/files/styles/dist/style.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build.js",
     "build:serve": "live-server --port=8080"
