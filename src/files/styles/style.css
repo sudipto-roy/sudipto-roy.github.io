@@ -1,18 +1,153 @@
 @import "tailwindcss";
 
-.heading-gradient {
-    /* @apply font-bold text-4xl md:text-5xl lg:text-6xl; */
-    background: linear-gradient(90deg, #4285f4,#9b72cb,  #d96570);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* background-size: 300% auto; Adjust size for more spread */
-    /* animation: gradient-dissolve 1s ease-in-out infinite alternate; */
-    /* background: linear-gradient(74deg, #4285f4 0, #4285f4 9%, #d96570 20%, #d96570 24%, #9b72cb 35%, #4285f4 44%, #9b72cb 50%, #d96570 56%) */
-  }
+/* Modern Color Palette */
+:root {
+  --primary-blue: #3b82f6;
+  --primary-purple: #8b5cf6;
+  --primary-pink: #ec4899;
+  --accent-teal: #06b6d4;
+  --accent-orange: #f97316;
+  --dark-bg: #0f172a;
+  --light-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+}
 
-  /* @keyframes gradient-dissolve {
-    0% { background: linear-gradient(90deg, #4285f4,#9b72cb,  #d96570); }
-    33% { background: linear-gradient(180deg, #4285f4,#9b72cb,  #d96570); }
-  66% { background: linear-gradient(270deg, #4285f4,#9b72cb,  #d96570); }
-    100% { background: linear-gradient(90deg, #4285f4,#9b72cb,  #d96570); }
-  } */
+/* Enhanced Heading Gradient */
+.heading-gradient {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple), var(--primary-pink));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Modern Card Styles */
+.thumbnail-card {
+  @apply relative overflow-hidden rounded-2xl border-0 shadow-lg transition-all duration-300 ease-out;
+  background: linear-gradient(135deg, var(--card-bg) 0%, #f1f5f9 100%);
+  backdrop-filter: blur(10px);
+}
+
+.thumbnail-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Icon Container Animation */
+.icon-container {
+  @apply relative transition-all duration-300 ease-out;
+}
+
+.thumbnail-card:hover .icon-container {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Icon Glow Effect */
+.icon-glow {
+  @apply absolute inset-0 rounded-full opacity-0 transition-opacity duration-300;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+}
+
+.thumbnail-card:hover .icon-glow {
+  opacity: 1;
+}
+
+/* Text Animation */
+.card-title {
+  @apply transition-all duration-300 ease-out;
+}
+
+.thumbnail-card:hover .card-title {
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+/* Background Pattern */
+.bg-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+}
+
+/* Floating Animation for Cards */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.thumbnail-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.thumbnail-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.thumbnail-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.thumbnail-card:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.thumbnail-card:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.thumbnail-card:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.thumbnail-card:nth-child(7) {
+  animation-delay: 3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .thumbnail-card {
+    animation: none;
+  }
+  
+  .thumbnail-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+}
