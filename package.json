@@ -10,9 +10,15 @@
   "scripts": {
     "start": "live-server --open=/src --port=8080",
     "css": "npx @tailwindcss/cli -i ./src/files/styles/style.css -o ./src/files/styles/dist/style.css --watch",
+    "css:build": "npx tailwindcss -i ./src/files/styles/style.css -o ./src/files/styles/dist/style.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build.js",
-    "build:serve": "live-server --port=8080"
+    "build:v1": "node build.js v1",
+    "build:latest": "node build.js latest",
+    "build:serve": "live-server --port=8080",
+    "dev": "npm run css & npm run start",
+    "serve:latest": "live-server --port=8080",
+    "serve:v1": "live-server --port=8081 --open=/v1"
   },
   "repository": {
     "type": "git",

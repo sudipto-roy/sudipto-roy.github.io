@@ -3,10 +3,8 @@ var fs = require('fs');
 const { exec } = require('child_process');
 const path = require('path');
 
-async function buildTailwindCSS() {
+async function buildTailwindCSS(inputPath, outputPath) {
   try {
-    const inputPath = path.resolve('./src/styles/style.css');
-    const outputPath = path.resolve('./styles/dist/style.css');
     const command = `npx tailwindcss -i "${inputPath}" -o "${outputPath}" --minify`;
 
     console.log(`Executing: ${command}`);
@@ -41,22 +39,57 @@ async function buildTailwindCSS() {
   }
 }
 
-// Call the function to execute the Tailwind CSS command
-buildTailwindCSS();
+async function buildVersion(version = 'latest') {
+  const isV1 = version === 'v1';
+  const prefix = isV1 ? 'v1/' : '';
+  
+  console.log(`Building ${version} version...`);
+  
+  // Build Tailwind CSS for this version
+  const inputPath = path.resolve(`./${prefix}src/files/styles/style.css`);
+  const outputPath = path.resolve(`./${prefix}src/files/styles/dist/style.css`);
+  await buildTailwindCSS(inputPath, outputPath);
 
-fs.readFile('src/index.html', 'utf8', async function (err, data) { 
-  if (err) {
-    return console.log(err);
-  }
-  var result = await minify(data, {collapseWhitespace: true, removeComments: true});
-  fs.writeFile('index.html', result, function (err) {
-    if (err) return console.log(err);
+  // Build HTML for this version
+  const htmlInputPath = `${prefix}src/index.html`;
+  const htmlOutputPath = isV1 ? 'v1/index.html' : 'index.html';
+  
+  fs.readFile(htmlInputPath, 'utf8', async function (err, data) { 
+    if (err) {
+      return console.log(err);
+    }
+    var result = await minify(data, {collapseWhitespace: true, removeComments: true});
+    fs.writeFile(htmlOutputPath, result, function (err) {
+      if (err) return console.log(err);
+      console.log(`${version} HTML built successfully!`);
+    });
   });
-});
 
+  // Copy files for this version
+  const filesSource = `${prefix}src/files`;
+  const filesDest = isV1 ? 'v1/files' : 'files';
+  
+  fs.cp(filesSource, filesDest, {recursive: true}, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(`${version} files copied successfully!`);
+    }
+  });
+}
 
-fs.cp('src/files', 'files', {recursive: true}, err => {
-  if (err) {
-    console.error(err);
-  }
-});
+// Build both versions
+async function buildAll() {
+  console.log('Starting build process...');
+  
+  // Build v1 first (preserve current version)
+  await buildVersion('v1');
+  
+  // Build latest version
+  await buildVersion('latest');
+  
+  console.log('All versions built successfully!');
+}
+
+// Call the function to execute the build
+buildAll();
